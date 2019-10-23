@@ -1,0 +1,3 @@
+exp test/test@orcl file=D:\test.dmp full=n /*full=n表示只导出当前用户*/
+
+imp test/test@//localhost:1521/orcl file=D:\test.dmp full=y statistics=none

@@ -1,0 +1,7 @@
+/%进入rman
+rman
+%/
+connect target /
+delete archivelog all completed before 'sysdate';
+crosscheck archivelog all;
+delete expired archivelog all;

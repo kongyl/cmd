@@ -1,0 +1,12 @@
+edit param mgr
+
+add extract ext_test, tranlog, begin now
+add exttrail D:\Programs\Oracle\Database\product\12.2.0\oggcore_1\dirdat\r1 extract ext_test
+edit params ext_test
+/*
+extract ext_test
+userid ogg, password ogg
+rmthost 192.168.199.123, mgrport 7809 --目标服务器地址
+rmttrail D:\Programs\Oracle\Database\product\12.2.0\oggcore_1\dirdat\r1 --目标服务器文件夹
+table test.*;
+*/

@@ -1,0 +1,21 @@
+edit param mgr
+/*
+PORT 7809
+*/
+edit param ./GLOBALS
+/*
+ggschema ogg
+checkpointtable ogg.checkpoint
+*/
+add checkpointtable ogg.checkpoint
+add replicat rep_test exttrail D:\Programs\Oracle\Database\product\12.2.0\oggcore_1\dirdat\r1, checkpointtable ogg.checkpoint
+edit param rep_test
+/*
+replicat rep_test
+userid ogg, password ogg
+ASSUMETARGETDEFS
+discardfile D:\Programs\Oracle\Database\product\12.2.0\oggcore_1\discard\repsz.dsc, append, megabytes 10
+DDL INCLUDE MAPPED
+DDLERROR DEFAULT IGNORE RETRYOP
+map test.*, target test.*;
+*/

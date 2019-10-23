@@ -1,0 +1,29 @@
+# 查询当前字符集
+select * from nls_database_parameters where parameter='NLS_CHARACTEREST';
+
+# 关闭数据库
+shutdown immediate;
+# 启动数据库到mount状态
+startup mount;
+# 限制session
+alter system enable restricted session;
+# 查询参数
+show parameter job_queue_processes;
+show parameter aq_tm_processes;
+# 修改参数
+alter system set job_queue_processes=0;
+alter system set aq_tm_processes=0;
+# 打开数据库
+alter database open;
+# 更改字符集
+alter database character set internal_use AL32UTF8;
+alter database character set internal_use ZHS16GBK;
+# 关闭数据库
+shutdown immediate;
+# 启动到mount状态
+startup mount;
+# 将参数改回原值
+alter system set job_queue_processes=4000;
+alter system set aq_tm_processes=1;
+# 打开数据库
+alter database open;

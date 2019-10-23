@@ -1,0 +1,6 @@
+connect target test/test
+run {
+  delete archivelog all completed before 'sysdate - 1';
+  crosscheck archivelog all;
+  delete expired archivelog all;
+}

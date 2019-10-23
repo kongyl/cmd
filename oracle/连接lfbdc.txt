@@ -1,0 +1,1 @@
+sqlplus sys/system@13.160.7.110/LFBDC as sysdba
