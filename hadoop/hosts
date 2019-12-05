@@ -1,0 +1,5 @@
+# /etc/hosts
+10.4.0.2        master
+10.4.0.11       slave01
+10.4.0.12       slave02
+

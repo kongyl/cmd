@@ -1,0 +1,5 @@
+ssh master
+ssh slave01
+ssh slave02
+ssh 0.0.0.0
+
