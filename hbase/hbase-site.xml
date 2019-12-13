@@ -37,6 +37,12 @@
     <name>hbase.zookeeper.property.dataDir</name>
     <value>/home/kongyl/Test/zookeeper</value>
   </property>
+  <!-- 需要远程正确访问时需配置 -->
+  <property>
+    <name>hbase.master.hostname</name>
+    <value>kongyl-sandisk</value>
+  </property>
+  <!-- 默认可不配置 -->
   <property>
     <name>hbase.coprocessor.user.region.classes</name>
     <value>org.locationtech.geomesa.hbase.coprocessor.GeoMesaCoprocessor</value>

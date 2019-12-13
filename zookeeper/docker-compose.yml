@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  zoo1:
+    image: zookeeper
+    restart: always
+    hostname: zoo1
+    networks: 
+      zookeeper:
+        ipv4_address: 10.4.0.11
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=10.4.0.11:2888:3888;2181 server.2=10.4.0.12:2888:3888;2181 server.3=10.4.0.13:2888:3888;2181
+  zoo2: 
+    image: zookeeper
+    restart: always
+    hostname: zoo2
+    networks:
+      zookeeper:
+        ipv4_address: 10.4.0.12
+    environment:
+      ZOO_MY_ID: 2
+      ZOO_SERVERS: server.1=10.4.0.11:2888:3888;2181 server.2=10.4.0.12:2888:3888;2181 server.3=10.4.0.13:2888:3888;2181
+  zoo3:
+    image: zookeeper
+    restart: always
+    hostname: zoo3
+    networks: 
+      zookeeper:
+        ipv4_address: 10.4.0.13
+    environment:
+      ZOO_MY_ID: 3
+      ZOO_SERVERS: server.1=10.4.0.11:2888:3888;2181 server.2=10.4.0.12:2888:3888;2181 server.3=10.4.0.13:2888:3888;2181
+
+networks:
+  zookeeper:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.4.0.0/24
