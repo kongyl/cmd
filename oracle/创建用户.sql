@@ -1,2 +1,2 @@
-create user zsdak identified by "zsdak" default tablespace zsdak;
-grant dba to zsdak;
+create user zssxk identified by zssxk default tablespace zssxk;
+grant dba to zssxk;
