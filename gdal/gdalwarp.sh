@@ -1,0 +1,1 @@
+.\gdalwarp -t_srs EPSG:4527 -srcnodata 0 -dstnodata 0 -ot Byte -co COMPRESS=LZW -co TILED=YES in.tif out.tif
