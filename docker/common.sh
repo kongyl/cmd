@@ -1,3 +1,10 @@
-# redis
-docker run --name redis --network=common --ip=10.0.0.2 -d redis
-docker run --name redis -p 6379:6379 -d redis
+# restart
+docker update --restart=always postgres
+
+# export
+docker export postgres >  /home/kongyl/Downloads/postgres.tar
+# import 
+docker import - kongyl/postgres < postgres.tar
+
+# 提交
+docker commit ubuntu kongyl/ubuntu:0.1.0
