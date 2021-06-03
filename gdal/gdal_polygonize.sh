@@ -1,0 +1,1 @@
+docker run --rm -v /mnt/share/Test/gdal:/data osgeo/gdal:ubuntu-full-3.3.0 gdal_polygonize.py /data/in/V1-0/13_OTSU/1104/5760_OTSU.tif /data/out/t01.gpkg
