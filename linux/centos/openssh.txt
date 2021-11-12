@@ -1,0 +1,42 @@
+# firewall
+firewall-cmd --query-port=5432/tcp
+firewall-cmd --zone=public --add-port=23/tcp --permanent
+firewall-cmd --complete-reload
+
+# openssl
+tar xvf openssl-1.1.1l.tar.gz
+cd openssl-1.1.1l
+./config --prefix=/usr/ --openssldir=/usr/ shared
+make
+make install
+openssl version
+
+# openssh
+tar xvf openssh-8.8p1.tar.gz
+cd openssh-8.8p1
+mkdir /etc/ssh.bak
+cp /etc/ssh/ssh* /etc/ssh.bak && cp /etc/ssh/m* /etc/ssh.bak
+chmod 600 /etc/ssh/ssh_host_rsa_key /etc/ssh/ssh_host_ecdsa_key /etc/ssh/ssh_host_ed25519_key
+
+./configure --prefix=/usr --sysconfdir=/etc/ssh --with-md5-passwords --with-pam --with-zlib --with-tcp-wrappers --with-ssl-dir=/etc/ssl --without-hardening
+make
+make install
+
+cp -a contrib/redhat/sshd.init /etc/init.d/sshd
+cp -a contrib/redhat/sshd.pam /etc/pam.d/sshd.pam
+chmod +x /etc/init.d/sshd
+mv /usr/lib/systemd/system/sshd.service /usr/lib/systemd/system/sshd.service.bak
+
+vim /etc/ssh/sshd_config
+# add last
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_ecdsa_key
+HostKey /etc/ssh/ssh_host_ed25519_key
+PermitRootLogin yes
+PasswordAuthentication yes
+UsePAM yes
+
+chkconfig --add sshd
+chkconfig sshd on
+systemctl daemon-reload
+systemctl restart sshd
