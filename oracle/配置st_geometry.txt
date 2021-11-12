@@ -1,0 +1,4 @@
+# sde
+select * from user_libraries;
+create or replace library ST_SHAPELIB as '/opt/oracle/app/product/11.2.0/dbhome_1/bin/libst_shapelib.so';
+alter package sde.st_geometry_shapelib_pkg compile reuse settings;
