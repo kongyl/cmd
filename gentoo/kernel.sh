@@ -1,12 +1,10 @@
 # backup
-rm -rf /lib/modules/6.1.31-gentoo-bak
-mv /lib/modules/6.1.31-gentoo /lib/modules/6.1.31-gentoo-bak
-rm -rf /root/success/*
-mv /boot/config-6.1.31-gentoo /root/success/config-6.1.31-gentoo
-mv /boot/initramfs-6.1.31-gentoo.img /root/success/initramfs-6.1.31-gentoo.img
-mv /boot/System.map-6.1.31-gentoo /root/success/System.map-6.1.31-gentoo
-mv /boot/vmlinuz-6.1.31-gentoo /root/success/vmlinuz-6.1.31-gentoo
-mv /boot/grub/grub.cfg /root/success/grub.cfg
+mv /lib/modules/6.1.31-gentoo /root/bak/success/6.1.31-gentoo
+mv /boot/config-6.1.31-gentoo /root/bak/success/config-6.1.31-gentoo
+#mv /boot/initramfs-6.1.31-gentoo.img /root/bak/success/initramfs-6.1.31-gentoo.img
+mv /boot/System.map-6.1.31-gentoo /root/bak/success/System.map-6.1.31-gentoo
+mv /boot/vmlinuz-6.1.31-gentoo /root/bak/success/vmlinuz-6.1.31-gentoo
+mv /boot/grub/grub.cfg /root/bak/success/grub.cfg
 
 # install
 make modules_install
