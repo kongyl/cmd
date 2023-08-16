@@ -1,0 +1,7 @@
+yum install devtoolset-11-runtime-11.1-2.el7.x86_64.rpm
+yum install devtoolset-11-binutils-2.36.1-1.el7.2.x86_64.rpm
+yum install devtoolset-11-gcc-11.2.1-9.1.el7.x86_64.rpm
+yum install devtoolset-11-libstdc++-devel-11.2.1-9.1.el7.x86_64.rpm
+yum install devtoolset-11-gcc-c++-11.2.1-9.1.el7.x86_64.rpm
+ln -s /opt/rh/devtoolset-11/root/bin/gcc /usr/bin/gcc
+ln -s /opt/rh/devtoolset-11/root/bin/g++ /usr/bin/g++
